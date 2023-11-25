@@ -172,7 +172,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 847c3e21328564340a46d8e676cdca93, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _rotationSpeed: 50
+  _rotationSpeed: 75
   _validTiles:
   - {fileID: 11400000, guid: 431703ca59058c3458db369ae3b4a92f, type: 2}
 --- !u!114 &684687372372015391
