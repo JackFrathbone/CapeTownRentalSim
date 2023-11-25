@@ -1,18 +1,23 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
 public class FurnitureController : MonoBehaviour
 {
     [Header("Settings")]
+    [Tooltip("The name that shows up when first seeing the furniture")]
+    [SerializeField] string _furnitureName;
+
     [SerializeField] float _rotationSpeed;
     [Tooltip("Which tiles this furniture can be placed on")]
-    [SerializeField] List<TileBase> _validTiles = new List<TileBase>();
+    [SerializeField] List<TileBase> _validTiles = new();
 
     [Header("References")]
     private Rigidbody2D _rigidbody2D;
     private SpriteRenderer _spriteRenderer;
+    private TextMeshPro _nameText;
 
     [Header("Data")]
     private bool _followMouse = false;
@@ -20,11 +25,14 @@ public class FurnitureController : MonoBehaviour
 
     private bool _isBlocked = false;
     private bool _canPlace = false;
+    private bool _canDelete = false;
 
     private void Start()
     {
         _rigidbody2D = GetComponent<Rigidbody2D>();
         _spriteRenderer = GetComponent<SpriteRenderer>();
+        _nameText = GetComponentInChildren<TextMeshPro>();
+        _nameText.text = _furnitureName;
     }
 
     private void OnMouseDown()
@@ -36,10 +44,15 @@ public class FurnitureController : MonoBehaviour
         }
         else if (!_firstClick && _canPlace)
         {
+            _nameText.gameObject.SetActive(false);
             Destroy(GetComponent<CustomCollisionDetection>());
             _spriteRenderer.color = Color.white;
             this.gameObject.tag = "Wall";
             Destroy(this);
+        }
+        else if(!_firstClick && _canDelete)
+        {
+            Destroy(gameObject);
         }
         else
         {
@@ -55,7 +68,7 @@ public class FurnitureController : MonoBehaviour
             _rigidbody2D.MovePosition(mousePosition);
 
             float scrollWheelInput = Input.GetAxis("Mouse ScrollWheel");
-            transform.Rotate(Vector3.forward * (_rotationSpeed * 100) * scrollWheelInput * Time.deltaTime);
+            transform.Rotate((_rotationSpeed * 100) * scrollWheelInput * Time.deltaTime * Vector3.forward);
         }
     }
 
@@ -65,6 +78,10 @@ public class FurnitureController : MonoBehaviour
         {
             _isBlocked = true;
         }
+        else if (collision.CompareTag("Bin"))
+        {
+            _canDelete = true;
+        }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
@@ -72,6 +89,10 @@ public class FurnitureController : MonoBehaviour
         if (collision.CompareTag("Wall"))
         {
             _isBlocked = false;
+        }
+        else if (collision.CompareTag("Bin"))
+        {
+            _canDelete = false;
         }
     }
 

@@ -10,13 +10,23 @@ public class CustomCollisionDetection : MonoBehaviour
 
     void Start()
     {
-        GameObject tilemapObj = GameObject.FindGameObjectWithTag("Floor");
-        _tilemap = tilemapObj.GetComponent<Tilemap>();
         _furnitureController = GetComponent<FurnitureController>();
     }
 
     void Update()
     {
+        if (_tilemap == null)
+        {
+            GameObject tilemapObj = GameObject.FindGameObjectWithTag("Floor");
+
+            if (tilemapObj != null)
+            {
+                _tilemap = tilemapObj.GetComponent<Tilemap>();
+            }
+
+            return;
+        }
+
         Vector3 position = transform.position;
         Vector3Int cell = _tilemap.WorldToCell(position);
 
