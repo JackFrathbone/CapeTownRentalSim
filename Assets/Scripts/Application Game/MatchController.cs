@@ -25,35 +25,37 @@ public class MatchController : MonoBehaviour
 
     public void SelectAppButton(Button selectedButton)
     {
-        CheckMatch(selectedButton);
+        CheckButtonMatch(selectedButton);
     }
 
-    private void CheckMatch(Button selectedButton)
+    private void CheckButtonMatch(Button selectedButton)
     {
-        if(_selectedDocButton == null || selectedButton == null)
+        if (_selectedDocButton == null || selectedButton == null)
         {
             return;
         }
 
 
-        if(_selectedDocButton.GetComponentInChildren<TextMeshProUGUI>().text == selectedButton.GetComponentInChildren<TextMeshProUGUI>().text)
+        if (_selectedDocButton.GetComponentInChildren<TextMeshProUGUI>().text == selectedButton.GetComponentInChildren<TextMeshProUGUI>().text)
         {
             if (selectedButton.GetComponent<Image>().color != Color.green)
             {
                 selectedButton.GetComponent<Image>().color = Color.green;
+                _matchesMade++;
             }
         }
     }
 
     public bool MatchCheck(int count)
     {
-        if(_matchesMade == count)
+        if (_matchesMade == count)
         {
             _matchesMade = 0;
             return true;
         }
         else
         {
+            _matchesMade = 0;
             return false;
         }
     }

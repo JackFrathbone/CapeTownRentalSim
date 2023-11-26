@@ -20,21 +20,27 @@ public class ApplicationGameManager : MonoBehaviour
     private AutoScroll _autoScroll;
     private MatchController _matchController;
 
+    [SerializeField] RenderTexture _level1RenderTexture;
+    [SerializeField] RenderTexture _level2RenderTexture;
+    [SerializeField] RenderTexture _level3RenderTexture;
+
+    [SerializeField] RawImage _levelEndImage;
+
+    [SerializeField] GameObject _endScreen;
+
     [Header("Data")]
     private int _currentApplication = 1;
     private int _firstChoiceLevel;
     private int _secondChoiceLevel;
     private int _thirdChoiceLevel;
 
-    private bool _firstChoicePass;
-    private bool _secondChoicePass;
-    private bool _thirdChoicePass;
-
 
     private void Start()
     {
         _autoScroll = GetComponent<AutoScroll>();
         _matchController = GetComponent<MatchController>();
+
+        _endScreen.SetActive(false);
 
         SetScores();
         SetLabel();
@@ -168,6 +174,24 @@ public class ApplicationGameManager : MonoBehaviour
 
     public void LoadNextApplication()
     {
+        bool passed = _matchController.MatchCheck(8);
+
+        if (_currentApplication == 1)
+        {
+            ShowEndScreen(1);
+            return;
+        }
+        else if (_currentApplication == 2)
+        {
+            ShowEndScreen(2);
+            return;
+        }
+        else if (_currentApplication == 3)
+        {
+            ShowEndScreen(3);
+            return;
+        }
+
         _currentApplication++;
         SetLabel();
         _autoScroll.ResetPosition();
@@ -176,21 +200,24 @@ public class ApplicationGameManager : MonoBehaviour
         {
             button.GetComponent<Image>().color = Color.red;
         }
+    }
 
-        bool passed = _matchController.MatchCheck(8);
+    private void ShowEndScreen(int level)
+    {
+        _endScreen.SetActive(true);
 
-        if (_currentApplication == 1)
+        switch (level)
         {
-            _firstChoicePass = passed;
+            case 1:
+                _levelEndImage.texture = _level1RenderTexture;
+                break;
+            case 2:
+                _levelEndImage.texture = _level2RenderTexture;
+                break;
+            case 3:
+                _levelEndImage.texture = _level3RenderTexture;
+                break;
         }
-        else if (_currentApplication == 2)
-        {
-            _secondChoicePass = passed;
-        }
-        else if (_currentApplication == 3)
-        {
-            _thirdChoicePass = passed;
-        }
-
+        
     }
 }

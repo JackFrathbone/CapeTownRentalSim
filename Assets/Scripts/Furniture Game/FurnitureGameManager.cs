@@ -25,32 +25,38 @@ public class FurnitureGameManager : MonoBehaviour
     private int _onLevel;
     private int _currentLevelScore;
 
+    private bool _gameStarted;
+
     private void Start()
     {
         PlayerPrefs.DeleteAll();
 
         _screenshot = GetComponent<Screenshot>();
-        LoadNextLevel();
     }
 
     private void Update()
     {
-        if (_timer > 0)
+        if (_gameStarted)
         {
-            _timer -= Time.deltaTime;
+            if (_timer > 0)
+            {
+                _timer -= Time.deltaTime;
 
-            _timerText.text = _timer.ToString("F0") + " seconds left...";
-        }
-        else
-        {
-            _screenshot.TakeLevelScreenshot(_onLevel);
-            _endScreen.SetActive(true);
+                _timerText.text = _timer.ToString("F0") + " seconds left...";
+            }
+            else
+            {
+                _screenshot.TakeLevelScreenshot(_onLevel);
+                _endScreen.SetActive(true);
+            }
         }
     }
 
     //Loads next level in the list
     public void LoadNextLevel()
     {
+        _gameStarted = true;
+
         if (_levels.Count != 0)
         {
             if (_currentLoadedLevel != null)

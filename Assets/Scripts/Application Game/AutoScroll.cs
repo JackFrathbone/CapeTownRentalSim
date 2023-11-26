@@ -12,6 +12,7 @@ public class AutoScroll : MonoBehaviour
     [Header("Data")]
     private Vector2 _startPosition;
     private Vector2 _endPosition;
+    private bool _startScrolling = false;
 
     private void Start()
     {
@@ -24,12 +25,16 @@ public class AutoScroll : MonoBehaviour
 
     private void Update()
     {
-        // Move the ScrollView content towards the end position at a constant speed
-        _scrollView.content.localPosition = Vector2.MoveTowards(_scrollView.content.localPosition, _endPosition, _scrollSpeed * Time.deltaTime);
+        if (_startScrolling)
+        {
+            // Move the ScrollView content towards the end position at a constant speed
+            _scrollView.content.localPosition = Vector2.MoveTowards(_scrollView.content.localPosition, _endPosition, _scrollSpeed * Time.deltaTime);
+        }
     }
 
     public void ResetPosition()
     {
+        _startScrolling = true;
         _scrollView.content.localPosition = _startPosition;
     }
 
