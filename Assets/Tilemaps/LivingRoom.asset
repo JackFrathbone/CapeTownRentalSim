@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 13312, guid: 0000000000000000e000000000000000, type: 0}
   m_Name: LivingRoom
   m_EditorClassIdentifier: 
-  m_Sprite: {fileID: 21300000, guid: 0d7235cb5a6842143b86d081bfe73351, type: 3}
+  m_Sprite: {fileID: 21300000, guid: cf096ca548595d4458ecf980d2cabd33, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Transform:
     e00: 1

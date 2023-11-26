@@ -349,6 +349,8 @@ MonoBehaviour:
   _validTiles:
   - {fileID: 11400000, guid: 431703ca59058c3458db369ae3b4a92f, type: 2}
   - {fileID: 11400000, guid: 589bb5b2aca3cbb4fb74a7398be58479, type: 2}
+  - {fileID: 11400000, guid: 67aafc6f69a703b4184af13bfe87ca83, type: 2}
+  - {fileID: 11400000, guid: a38516790de1cc94689de29f50f9644e, type: 2}
   - {fileID: 11400000, guid: f3d4c4acddccf8b4fbb81689ea2c64cd, type: 2}
   - {fileID: 11400000, guid: bf5de6dd01ed1a64fab1caee59d83a16, type: 2}
   - {fileID: 11400000, guid: 3d4de0dbcd05a714c8a365e376ebccff, type: 2}
