@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Security.Cryptography.X509Certificates;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -9,6 +10,8 @@ public class FurnitureGameManager : MonoBehaviour
     [Header("References")]
     [SerializeField] TextMeshProUGUI _timerText;
     [SerializeField] GameObject _endScreen;
+
+    [SerializeField] TextMeshProUGUI _levelName;
 
     //A list of the specific apartment prefabs that are loaded
     [SerializeField] List<GameObject> _levels = new();
@@ -32,6 +35,8 @@ public class FurnitureGameManager : MonoBehaviour
         PlayerPrefs.DeleteAll();
 
         _screenshot = GetComponent<Screenshot>();
+
+        _furnitureSpawner.gameObject.SetActive(false);
     }
 
     private void Update()
@@ -43,12 +48,24 @@ public class FurnitureGameManager : MonoBehaviour
                 _timer -= Time.deltaTime;
 
                 _timerText.text = _timer.ToString("F0") + " seconds left...";
+                _screenshot.TakeLevelScreenshot(_onLevel);
             }
             else
             {
-                _screenshot.TakeLevelScreenshot(_onLevel);
-                _endScreen.SetActive(true);
+                OpenEndScreen();
+                //Invoke("OpenEndScreen", 0.15f);
             }
+        }
+    }
+
+    private void OpenEndScreen()
+    {
+        _endScreen.SetActive(true);
+        _furnitureSpawner.gameObject.SetActive(false);
+
+        if(_onLevel == 2)
+        {
+            _endScreen.GetComponentInChildren<TextMeshProUGUI>().text = "That's all the houses for today, whew hope you got that all! Now it's time for you to fill our your applications...";
         }
     }
 
@@ -56,6 +73,8 @@ public class FurnitureGameManager : MonoBehaviour
     public void LoadNextLevel()
     {
         _gameStarted = true;
+        _furnitureSpawner.gameObject.SetActive(true);
+
 
         if (_levels.Count != 0)
         {
@@ -77,6 +96,20 @@ public class FurnitureGameManager : MonoBehaviour
         else
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        }
+
+
+        if (_onLevel == 0)
+        {
+            _levelName.text = "<Place 1: Gardens>";
+        }
+        else if (_onLevel == 1)
+        {
+            _levelName.text = "<Place 2: Observatory>";
+        }
+        else if (_onLevel == 2)
+        {
+            _levelName.text = "<Place 3: CBD>";
         }
     }
 
