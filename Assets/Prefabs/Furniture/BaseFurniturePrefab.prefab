@@ -31,7 +31,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8986518306153102228}
-  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -200,6 +199,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8394548377758898818}
+  serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0.13, y: -4.19, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -207,7 +207,6 @@ Transform:
   m_Children:
   - {fileID: 3784271540402649088}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &7532612644278646468
 SpriteRenderer:
@@ -346,13 +345,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _furnitureName: Base Furniture
-  _rotationSpeed: 75
+  _rotationSpeed: 10
   _validTiles:
   - {fileID: 11400000, guid: 431703ca59058c3458db369ae3b4a92f, type: 2}
   - {fileID: 11400000, guid: 589bb5b2aca3cbb4fb74a7398be58479, type: 2}
   - {fileID: 11400000, guid: f3d4c4acddccf8b4fbb81689ea2c64cd, type: 2}
   - {fileID: 11400000, guid: bf5de6dd01ed1a64fab1caee59d83a16, type: 2}
   - {fileID: 11400000, guid: 3d4de0dbcd05a714c8a365e376ebccff, type: 2}
+  - {fileID: 11400000, guid: 905dbde69fbd7794fb95ae10c9ea3114, type: 2}
 --- !u!114 &684687372372015391
 MonoBehaviour:
   m_ObjectHideFlags: 0

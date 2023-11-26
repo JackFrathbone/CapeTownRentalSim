@@ -13,17 +13,23 @@ public class FurnitureGameManager : MonoBehaviour
     //A list of the specific apartment prefabs that are loaded
     [SerializeField] List<GameObject> _levels = new();
 
-    [SerializeField]FurnitureSpawner _furnitureSpawner;
+    [SerializeField] FurnitureSpawner _furnitureSpawner;
+
+    private Screenshot _screenshot;
 
     [Header("Data")]
     [SerializeField] float _timerDefault;
     private float _timer;
     private GameObject _currentLoadedLevel;
 
+    private int _onLevel;
     private int _currentLevelScore;
 
     private void Start()
     {
+        PlayerPrefs.DeleteAll();
+
+        _screenshot = GetComponent<Screenshot>();
         LoadNextLevel();
     }
 
@@ -37,6 +43,7 @@ public class FurnitureGameManager : MonoBehaviour
         }
         else
         {
+            _screenshot.TakeLevelScreenshot(_onLevel);
             _endScreen.SetActive(true);
         }
     }
@@ -44,11 +51,13 @@ public class FurnitureGameManager : MonoBehaviour
     //Loads next level in the list
     public void LoadNextLevel()
     {
-        if(_levels.Count != 0)
+        if (_levels.Count != 0)
         {
-            if(_currentLoadedLevel != null)
+            if (_currentLoadedLevel != null)
             {
-                _levels.Remove(_levels[0]);
+                _onLevel++;
+                SetLevelEndScore(_onLevel);
+
                 Destroy(_currentLoadedLevel);
                 _furnitureSpawner.ClearPlacedFurniture();
             }
@@ -57,15 +66,22 @@ public class FurnitureGameManager : MonoBehaviour
             _endScreen.SetActive(false);
 
             _currentLoadedLevel = Instantiate(_levels[0]);
+            _levels.Remove(_levels[0]);
         }
         else
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
     }
 
     public void AddLevelScore()
     {
         _currentLevelScore++;
+    }
+
+    private void SetLevelEndScore(int level)
+    {
+        PlayerPrefs.SetInt("Level" + level.ToString() + "Score", _currentLevelScore);
+        _currentLevelScore = 0;
     }
 }

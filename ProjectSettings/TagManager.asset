@@ -7,6 +7,8 @@ TagManager:
   - Wall
   - Floor
   - Bin
+  - DocButton
+  - AppButton
   layers:
   - Default
   - TransparentFX
