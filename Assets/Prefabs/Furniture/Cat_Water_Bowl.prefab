@@ -9,6 +9,22 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 696667595259060131, guid: 64629a0de96146b43956e2b5f21ccc19, type: 3}
+      propertyPath: m_Size.x
+      value: 0.58302796
+      objectReference: {fileID: 0}
+    - target: {fileID: 696667595259060131, guid: 64629a0de96146b43956e2b5f21ccc19, type: 3}
+      propertyPath: m_Size.y
+      value: 0.51045763
+      objectReference: {fileID: 0}
+    - target: {fileID: 696667595259060131, guid: 64629a0de96146b43956e2b5f21ccc19, type: 3}
+      propertyPath: m_Offset.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 696667595259060131, guid: 64629a0de96146b43956e2b5f21ccc19, type: 3}
+      propertyPath: m_Offset.y
+      value: -0.011518434
+      objectReference: {fileID: 0}
+    - target: {fileID: 696667595259060131, guid: 64629a0de96146b43956e2b5f21ccc19, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.x
       value: 0.5714286
       objectReference: {fileID: 0}
@@ -26,7 +42,7 @@ PrefabInstance:
       objectReference: {fileID: 21300000, guid: df0d03ec4fed2164f81617402fc7bad3, type: 3}
     - target: {fileID: 8394548377758898818, guid: 64629a0de96146b43956e2b5f21ccc19, type: 3}
       propertyPath: m_Name
-      value: Cat_Food_Bowl 1
+      value: Cat_Water_Bowl
       objectReference: {fileID: 0}
     - target: {fileID: 8986518306153102228, guid: 64629a0de96146b43956e2b5f21ccc19, type: 3}
       propertyPath: m_LocalPosition.x

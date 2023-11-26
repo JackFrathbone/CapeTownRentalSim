@@ -9,6 +9,26 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 696667595259060131, guid: 64629a0de96146b43956e2b5f21ccc19, type: 3}
+      propertyPath: m_Size.x
+      value: 2.8557096
+      objectReference: {fileID: 0}
+    - target: {fileID: 696667595259060131, guid: 64629a0de96146b43956e2b5f21ccc19, type: 3}
+      propertyPath: m_Size.y
+      value: 0.9061283
+      objectReference: {fileID: 0}
+    - target: {fileID: 696667595259060131, guid: 64629a0de96146b43956e2b5f21ccc19, type: 3}
+      propertyPath: m_Offset.x
+      value: 0.04988402
+      objectReference: {fileID: 0}
+    - target: {fileID: 696667595259060131, guid: 64629a0de96146b43956e2b5f21ccc19, type: 3}
+      propertyPath: m_Offset.y
+      value: 0.9755073
+      objectReference: {fileID: 0}
+    - target: {fileID: 696667595259060131, guid: 64629a0de96146b43956e2b5f21ccc19, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 696667595259060131, guid: 64629a0de96146b43956e2b5f21ccc19, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.x
       value: 4.285714
       objectReference: {fileID: 0}
@@ -27,6 +47,18 @@ PrefabInstance:
     - target: {fileID: 8394548377758898818, guid: 64629a0de96146b43956e2b5f21ccc19, type: 3}
       propertyPath: m_Name
       value: Couch
+      objectReference: {fileID: 0}
+    - target: {fileID: 8986518306153102228, guid: 64629a0de96146b43956e2b5f21ccc19, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 8986518306153102228, guid: 64629a0de96146b43956e2b5f21ccc19, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 8986518306153102228, guid: 64629a0de96146b43956e2b5f21ccc19, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.75
       objectReference: {fileID: 0}
     - target: {fileID: 8986518306153102228, guid: 64629a0de96146b43956e2b5f21ccc19, type: 3}
       propertyPath: m_LocalPosition.x
@@ -68,8 +100,65 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8986518306153102228, guid: 64629a0de96146b43956e2b5f21ccc19, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8394548377758898818, guid: 64629a0de96146b43956e2b5f21ccc19, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6616192730383041178}
   m_SourcePrefab: {fileID: 100100000, guid: 64629a0de96146b43956e2b5f21ccc19, type: 3}
+--- !u!1 &1283379568353239340 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8394548377758898818, guid: 64629a0de96146b43956e2b5f21ccc19, type: 3}
+  m_PrefabInstance: {fileID: 7327382634279402414}
+  m_PrefabAsset: {fileID: 0}
+--- !u!61 &6616192730383041178
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1283379568353239340}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.93670875, y: 0.43786967}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 4.285714, y: 2.857143}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.9712068, y: 1.9814036}
+  m_EdgeRadius: 0

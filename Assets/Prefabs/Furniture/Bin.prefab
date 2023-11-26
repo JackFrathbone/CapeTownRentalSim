@@ -9,6 +9,22 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 696667595259060131, guid: 64629a0de96146b43956e2b5f21ccc19, type: 3}
+      propertyPath: m_Size.x
+      value: 0.9815665
+      objectReference: {fileID: 0}
+    - target: {fileID: 696667595259060131, guid: 64629a0de96146b43956e2b5f21ccc19, type: 3}
+      propertyPath: m_Size.y
+      value: 0.9662051
+      objectReference: {fileID: 0}
+    - target: {fileID: 696667595259060131, guid: 64629a0de96146b43956e2b5f21ccc19, type: 3}
+      propertyPath: m_Offset.x
+      value: 0.009216756
+      objectReference: {fileID: 0}
+    - target: {fileID: 696667595259060131, guid: 64629a0de96146b43956e2b5f21ccc19, type: 3}
+      propertyPath: m_Offset.y
+      value: 0.013825178
+      objectReference: {fileID: 0}
+    - target: {fileID: 696667595259060131, guid: 64629a0de96146b43956e2b5f21ccc19, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.x
       value: 1.1428572
       objectReference: {fileID: 0}
@@ -53,6 +69,18 @@ PrefabInstance:
       value: Bin
       objectReference: {fileID: 0}
     - target: {fileID: 8986518306153102228, guid: 64629a0de96146b43956e2b5f21ccc19, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8986518306153102228, guid: 64629a0de96146b43956e2b5f21ccc19, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8986518306153102228, guid: 64629a0de96146b43956e2b5f21ccc19, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8986518306153102228, guid: 64629a0de96146b43956e2b5f21ccc19, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -91,6 +119,10 @@ PrefabInstance:
     - target: {fileID: 8986518306153102228, guid: 64629a0de96146b43956e2b5f21ccc19, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8986518306153102228, guid: 64629a0de96146b43956e2b5f21ccc19, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

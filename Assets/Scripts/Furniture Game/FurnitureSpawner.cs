@@ -35,6 +35,8 @@ public class FurnitureSpawner : MonoBehaviour
         {
             _playthroughFurniturePrefabs.Add(obj);
         }
+
+        ListShuffle(_playthroughFurniturePrefabs);
     }
 
     public void ClearPlacedFurniture()
@@ -45,5 +47,17 @@ public class FurnitureSpawner : MonoBehaviour
         }
 
         ResetFurnitureList();
+    }
+
+    private void ListShuffle<T>(List<T> list)
+    {
+        System.Random random = new();
+        int n = list.Count;
+        while (n > 1)
+        {
+            int k = random.Next(n);
+            n--;
+            (list[n], list[k]) = (list[k], list[n]);
+        }
     }
 }
