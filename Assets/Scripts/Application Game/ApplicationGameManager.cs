@@ -26,7 +26,9 @@ public class ApplicationGameManager : MonoBehaviour
 
     [SerializeField] RawImage _levelEndImage;
 
-    [SerializeField] GameObject _endScreen;
+    [SerializeField] GameObject _endScreenPass;
+    [SerializeField] GameObject _endScreenFail;
+    [SerializeField] GameObject _endScreenEnd;
 
     [Header("Data")]
     private int _currentApplication = 1;
@@ -40,7 +42,9 @@ public class ApplicationGameManager : MonoBehaviour
         _autoScroll = GetComponent<AutoScroll>();
         _matchController = GetComponent<MatchController>();
 
-        _endScreen.SetActive(false);
+        _endScreenPass.SetActive(false);
+        _endScreenFail.SetActive(false);
+        _endScreenEnd.SetActive(false);
 
         SetScores();
         SetLabel();
@@ -105,45 +109,45 @@ public class ApplicationGameManager : MonoBehaviour
         {
             if (_firstChoiceLevel == 1)
             {
-                _applicationLabelText.text = "Rental Application: Place 1";
+                _applicationLabelText.text = "Rental Application-Gardens";
             }
             else if (_firstChoiceLevel == 2)
             {
-                _applicationLabelText.text = "Rental Application: Place 2";
+                _applicationLabelText.text = "Rental Application-Observatory";
             }
             else if (_firstChoiceLevel == 3)
             {
-                _applicationLabelText.text = "Rental Application: Place 3";
+                _applicationLabelText.text = "Rental Application-CBD";
             }
         }
         else if (_currentApplication == 2)
         {
             if (_secondChoiceLevel == 1)
             {
-                _applicationLabelText.text = "Rental Application: Place 1";
+                _applicationLabelText.text = "Rental Application-Gardens";
             }
             else if (_secondChoiceLevel == 2)
             {
-                _applicationLabelText.text = "Rental Application: Place 2";
+                _applicationLabelText.text = "Rental Application-Observatory";
             }
             else if (_secondChoiceLevel == 3)
             {
-                _applicationLabelText.text = "Rental Application: Place 3";
+                _applicationLabelText.text = "Rental Application-CBD";
             }
         }
         else if (_currentApplication == 3)
         {
             if (_thirdChoiceLevel == 1)
             {
-                _applicationLabelText.text = "Rental Application: Place 1";
+                _applicationLabelText.text = "Rental Application-Gardens";
             }
             else if (_thirdChoiceLevel == 2)
             {
-                _applicationLabelText.text = "Rental Application: Place 2";
+                _applicationLabelText.text = "Rental Application-Observatory";
             }
             else if (_thirdChoiceLevel == 3)
             {
-                _applicationLabelText.text = "Rental Application: Place 3";
+                _applicationLabelText.text = "Rental Application-CBD";
             }
         }
     }
@@ -172,26 +176,22 @@ public class ApplicationGameManager : MonoBehaviour
         }
     }
 
-    public void LoadNextApplication()
+    public void LoadEndScreen()
     {
         bool passed = _matchController.MatchCheck(8);
 
-        if (_currentApplication == 1)
+        if (passed)
         {
-            ShowEndScreen(1);
-            return;
+            ShowEndScreenPass(_currentApplication);
         }
-        else if (_currentApplication == 2)
+        else
         {
-            ShowEndScreen(2);
-            return;
+            ShowEndScreenFail(_currentApplication);
         }
-        else if (_currentApplication == 3)
-        {
-            ShowEndScreen(3);
-            return;
-        }
+    }
 
+    public void LoadNextApplication()
+    {
         _currentApplication++;
         SetLabel();
         _autoScroll.ResetPosition();
@@ -202,13 +202,29 @@ public class ApplicationGameManager : MonoBehaviour
         }
     }
 
-    private void ShowEndScreen(int level)
+    private void ShowEndScreenPass(int level)
     {
-        _endScreen.SetActive(true);
+        _endScreenPass.SetActive(true);
+
+        TextMeshProUGUI text = _endScreenPass.GetComponentInChildren<TextMeshProUGUI>();
+
+        if(level == _firstChoiceLevel)
+        {
+            text.text = "Great, you managed to your get your 1st choice!\r\nHope you are happy in your new place!";
+        }
+        else if (level == _secondChoiceLevel)
+        {
+            text.text = "Great, you managed to your get your 2nd choice!\r\nHope you are happy in your new place!";
+        }
+        else if (level == _thirdChoiceLevel)
+        {
+            text.text = "Great, you managed to your get your 3rd choice!\r\nHope you are happy in your new place!";
+        }
 
         switch (level)
         {
             case 1:
+
                 _levelEndImage.texture = _level1RenderTexture;
                 break;
             case 2:
@@ -218,6 +234,17 @@ public class ApplicationGameManager : MonoBehaviour
                 _levelEndImage.texture = _level3RenderTexture;
                 break;
         }
-        
+    }
+
+    private void ShowEndScreenFail(int level)
+    {
+        if(level != 3)
+        {
+            _endScreenFail.SetActive(true);
+        }
+        else
+        {
+            _endScreenEnd.SetActive(true);
+        }
     }
 }
