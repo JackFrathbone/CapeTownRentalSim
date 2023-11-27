@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/ApplicationScene.unity
     guid: f2b0dea793f363c4cbe2bc773e5d35c4
+  - enabled: 1
+    path: Assets/Scenes/Freeplay.unity
+    guid: dc3534fd54a49494789ef426986972a7
   m_configObjects: {}

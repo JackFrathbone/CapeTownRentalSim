@@ -53,7 +53,10 @@ public class FurnitureController : MonoBehaviour
             Destroy(GetComponent<CustomCollisionDetection>());
             _spriteRenderer.color = Color.white;
             this.gameObject.tag = "Wall";
-            _gameManager.AddLevelScore();
+            if(_gameManager != null)
+            {
+                _gameManager.AddLevelScore();
+            }
             Destroy(this);
         }
         else if (!_firstClick && _canDelete)
