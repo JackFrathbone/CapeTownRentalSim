@@ -361,6 +361,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1118110781}
+        m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
+        m_MethodName: PlayOneShot
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 8300000, guid: beee306140bbd104ca81ae6493230a0c, type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &282351956
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -941,7 +953,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &724714140
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1036,7 +1048,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 647, y: -466}
+  m_AnchoredPosition: {x: 620, y: -466}
   m_SizeDelta: {x: 600.3074, y: 123.27}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &733115120
@@ -1059,7 +1071,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: <Place 1>
+  m_text: '<Place 1: Gardens>'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: baa94e3b022f6964db1e24e30a22f6e2, type: 2}
   m_sharedMaterial: {fileID: 4952201117890595247, guid: baa94e3b022f6964db1e24e30a22f6e2, type: 2}
@@ -1086,7 +1098,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 72
+  m_fontSize: 59.45
   m_fontSizeBase: 62
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -1825,6 +1837,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1118110781}
+        m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
+        m_MethodName: PlayOneShot
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 8300000, guid: beee306140bbd104ca81ae6493230a0c, type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1308435925
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2209,7 +2233,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: <Next Apartment!>
+  m_text: <Next!>
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: baa94e3b022f6964db1e24e30a22f6e2, type: 2}
   m_sharedMaterial: {fileID: 4952201117890595247, guid: baa94e3b022f6964db1e24e30a22f6e2, type: 2}
@@ -2481,7 +2505,7 @@ MonoBehaviour:
   m_text: "\u25CF Click on your furniture to pick it up!\n\u25CF Click to place it
     down in the apartment when it is green\n\u25CF Some furniture can only go in
     certain rooms!\n\u25CF Rotate your furniture with 'R' or the scrollwheel on your
-    mouse!"
+    mouse!\n\u25CF If something doesn't fit, bin it!"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: baa94e3b022f6964db1e24e30a22f6e2, type: 2}
   m_sharedMaterial: {fileID: 4952201117890595247, guid: baa94e3b022f6964db1e24e30a22f6e2, type: 2}
@@ -3013,6 +3037,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2112528117}
     m_Modifications:
+    - target: {fileID: 6436128201506450379, guid: 2d6517cbac43c2940a597abadd5cc40d, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7056625550024602465, guid: 2d6517cbac43c2940a597abadd5cc40d, type: 3}
       propertyPath: m_Name
       value: Agent

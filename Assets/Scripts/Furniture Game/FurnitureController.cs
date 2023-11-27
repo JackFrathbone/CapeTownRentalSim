@@ -14,11 +14,15 @@ public class FurnitureController : MonoBehaviour
     [Tooltip("Which tiles this furniture can be placed on")]
     [SerializeField] List<TileBase> _validTiles = new();
 
+    [SerializeField] Color _canPlaceColor;
+    [SerializeField] Color _cannotPlaceColor;
+
     [Header("References")]
     private Rigidbody2D _rigidbody2D;
     private SpriteRenderer _spriteRenderer;
     private TextMeshPro _nameText;
     private FurnitureGameManager _gameManager;
+    private AudioSource _audioSource;
 
     [Header("Data")]
     private bool _followMouse = false;
@@ -35,6 +39,7 @@ public class FurnitureController : MonoBehaviour
         _rigidbody2D = GetComponent<Rigidbody2D>();
         _spriteRenderer = GetComponent<SpriteRenderer>();
         _nameText = GetComponentInChildren<TextMeshPro>();
+        _audioSource = GetComponentInChildren<AudioSource>();
         _nameText.text = _furnitureName;
 
         _gameManager = GameObject.FindObjectOfType<FurnitureGameManager>();
@@ -53,7 +58,8 @@ public class FurnitureController : MonoBehaviour
             Destroy(GetComponent<CustomCollisionDetection>());
             _spriteRenderer.color = Color.white;
             this.gameObject.tag = "Wall";
-            if(_gameManager != null)
+            _audioSource.Play();
+            if (_gameManager != null)
             {
                 _gameManager.AddLevelScore();
             }
@@ -139,12 +145,12 @@ public class FurnitureController : MonoBehaviour
         if (_validTiles.Contains(tile) && !_isBlocked)
         {
             _canPlace = true;
-            _spriteRenderer.color = Color.green;
+            _spriteRenderer.color = _canPlaceColor;
         }
         else
         {
             _canPlace = false;
-            _spriteRenderer.color = Color.red;
+            _spriteRenderer.color = _cannotPlaceColor;
         }
     }
 }

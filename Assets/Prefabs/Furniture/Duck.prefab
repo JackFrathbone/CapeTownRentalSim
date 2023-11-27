@@ -40,12 +40,24 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6565280819107845530, guid: 64629a0de96146b43956e2b5f21ccc19, type: 3}
       propertyPath: _furnitureName
-      value: Bookshelf
+      value: Duck
       objectReference: {fileID: 0}
     - target: {fileID: 6565280819107845530, guid: 64629a0de96146b43956e2b5f21ccc19, type: 3}
       propertyPath: _validTiles.Array.size
-      value: 6
+      value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 6565280819107845530, guid: 64629a0de96146b43956e2b5f21ccc19, type: 3}
+      propertyPath: _validTiles.Array.data[2]
+      value: 
+      objectReference: {fileID: 11400000, guid: 3d4de0dbcd05a714c8a365e376ebccff, type: 2}
+    - target: {fileID: 6565280819107845530, guid: 64629a0de96146b43956e2b5f21ccc19, type: 3}
+      propertyPath: _validTiles.Array.data[3]
+      value: 
+      objectReference: {fileID: 11400000, guid: 3d4de0dbcd05a714c8a365e376ebccff, type: 2}
+    - target: {fileID: 6565280819107845530, guid: 64629a0de96146b43956e2b5f21ccc19, type: 3}
+      propertyPath: _validTiles.Array.data[4]
+      value: 
+      objectReference: {fileID: 11400000, guid: 3d4de0dbcd05a714c8a365e376ebccff, type: 2}
     - target: {fileID: 6565280819107845530, guid: 64629a0de96146b43956e2b5f21ccc19, type: 3}
       propertyPath: _validTiles.Array.data[5]
       value: 

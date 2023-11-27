@@ -63,7 +63,9 @@ public class FurnitureGameManager : MonoBehaviour
         _endScreen.SetActive(true);
         _furnitureSpawner.gameObject.SetActive(false);
 
-        if(_onLevel == 2)
+        SetLevelEndScore(_onLevel);
+
+        if (_onLevel == 2)
         {
             _endScreen.GetComponentInChildren<TextMeshProUGUI>().text = "That's all the houses for today, whew hope you got that all! Now it's time for you to fill our your applications...";
         }
@@ -81,7 +83,6 @@ public class FurnitureGameManager : MonoBehaviour
             if (_currentLoadedLevel != null)
             {
                 _onLevel++;
-                SetLevelEndScore(_onLevel);
 
                 Destroy(_currentLoadedLevel);
                 _furnitureSpawner.ClearPlacedFurniture();

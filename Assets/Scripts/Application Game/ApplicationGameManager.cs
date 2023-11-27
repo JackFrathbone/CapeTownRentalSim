@@ -32,6 +32,7 @@ public class ApplicationGameManager : MonoBehaviour
 
     [Header("Data")]
     private int _currentApplication = 1;
+    private int _currentLevel = 0;
     private int _firstChoiceLevel;
     private int _secondChoiceLevel;
     private int _thirdChoiceLevel;
@@ -109,14 +110,17 @@ public class ApplicationGameManager : MonoBehaviour
         {
             if (_firstChoiceLevel == 1)
             {
+                _currentLevel = 1;
                 _applicationLabelText.text = "Rental Application-Gardens";
             }
             else if (_firstChoiceLevel == 2)
             {
+                _currentLevel = 2;
                 _applicationLabelText.text = "Rental Application-Observatory";
             }
             else if (_firstChoiceLevel == 3)
             {
+                _currentLevel = 3;
                 _applicationLabelText.text = "Rental Application-CBD";
             }
         }
@@ -124,14 +128,17 @@ public class ApplicationGameManager : MonoBehaviour
         {
             if (_secondChoiceLevel == 1)
             {
+                _currentLevel = 1;
                 _applicationLabelText.text = "Rental Application-Gardens";
             }
             else if (_secondChoiceLevel == 2)
             {
+                _currentLevel = 2;
                 _applicationLabelText.text = "Rental Application-Observatory";
             }
             else if (_secondChoiceLevel == 3)
             {
+                _currentLevel = 3;
                 _applicationLabelText.text = "Rental Application-CBD";
             }
         }
@@ -139,14 +146,17 @@ public class ApplicationGameManager : MonoBehaviour
         {
             if (_thirdChoiceLevel == 1)
             {
+                _currentLevel = 1;
                 _applicationLabelText.text = "Rental Application-Gardens";
             }
             else if (_thirdChoiceLevel == 2)
             {
+                _currentLevel = 2;
                 _applicationLabelText.text = "Rental Application-Observatory";
             }
             else if (_thirdChoiceLevel == 3)
             {
+                _currentLevel = 3;
                 _applicationLabelText.text = "Rental Application-CBD";
             }
         }
@@ -182,11 +192,11 @@ public class ApplicationGameManager : MonoBehaviour
 
         if (passed)
         {
-            ShowEndScreenPass(_currentApplication);
+            ShowEndScreenPass(_currentLevel);
         }
         else
         {
-            ShowEndScreenFail(_currentApplication);
+            ShowEndScreenFail(_currentLevel);
         }
     }
 
